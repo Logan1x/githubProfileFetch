@@ -16,7 +16,7 @@ export default function Home() {
       const data = await response.json();
       setUserData(data);
     } catch (error) {
-      console.log(error);
+      // console.log(error);
       setError(error);
     }
   };
@@ -33,8 +33,10 @@ export default function Home() {
 
   return (
     <div className="flex flex-col items-center justify-center min-h-screen py-2">
-      <h1 className="text-2xl font-semibold my-4">Get Your Github Details</h1>
-      <label htmlFor="inputUsername">Enter Username Below</label>
+      <h1 className="text-2xl font-semibold my-4">
+        Get Any Github Account Details
+      </h1>
+      <label htmlFor="inputUsername">Enter Github Username Below</label>
       <input
         className="border-2 border-black mb-4 text-center py-2 px-1 rounded"
         value={user}
@@ -46,7 +48,7 @@ export default function Home() {
         id="inputUsername"
       />
       {error}
-      {userData ? (
+      {userData.message != "Not Found" ? (
         <div className="flex flex-col items-center justify-center border-2 border-black rounded shadow-lg p-2 mx-2 space-y-2">
           <img
             className="h-60 w-60 rounded-full shadow-lg"
@@ -57,9 +59,11 @@ export default function Home() {
           <p className="w-80 mx-auto text-center">Bio : {userData.bio}</p>
           <p>Location : {userData.location}</p>
           <p>Website: {userData.blog}</p>
-          <p>{userData.message}</p>
+          <p className="text-lg text-red-600">{userData.message}</p>
         </div>
-      ) : null}
+      ) : (
+        <p className="text-lg text-red-600">{userData.message}</p>
+      )}
       <footer className="text-center text-gray-500 text-xs mt-4 ">
         Created by{" "}
         <span className="underline">
