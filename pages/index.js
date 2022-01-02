@@ -59,7 +59,11 @@ export default function Home() {
           <p className="w-80 mx-auto text-center">Bio : {userData.bio}</p>
           <p>Location : {userData.location}</p>
           <p>
-            Website: <a href={userData.blog}> {userData.blog}</a>
+            Website:{" "}
+            <a href={userData.blog} className="underline">
+              {" "}
+              {userData.blog}
+            </a>
           </p>
           <p className="text-lg text-red-600">{userData.message}</p>
         </div>
@@ -68,8 +72,10 @@ export default function Home() {
       )}
       <footer className="text-center text-gray-500 text-xs mt-4 ">
         Created by{" "}
-        <span className="underline">
-          <a href="https://logan1x.github.io">Logan1x</a>
+        <span className="underline hover:no-underline hover:text-cyan-600 ">
+          <a href="https://logan1x.github.io" className="cursor-grab">
+            Logan1x
+          </a>
         </span>
       </footer>
     </div>
