@@ -58,7 +58,9 @@ export default function Home() {
           <h1>Name : {userData.name}</h1>
           <p className="w-80 mx-auto text-center">Bio : {userData.bio}</p>
           <p>Location : {userData.location}</p>
-          <p>Website: {userData.blog}</p>
+          <p>
+            Website: <a href={userData.blog}></a> {userData.blog}
+          </p>
           <p className="text-lg text-red-600">{userData.message}</p>
         </div>
       ) : (
